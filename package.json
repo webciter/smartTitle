@@ -1,0 +1,24 @@
+{
+  "name": "smart_title",
+  "version": "1.0.0",
+  "description": "Simple functions to control the title of a html page",
+  "main": "smartTitle.js",
+  "dependencies": {
+   
+  },
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webciter/smartTitle.git"
+  },
+  "keywords": [
+    "title","scroll","flash"
+  ],
+  "author": "David Clews",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webciter/smartTitle/issues"
+  },
+  "homepage": "https://github.com/webciter/smartTitle#readme"
+}
