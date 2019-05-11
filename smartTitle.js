@@ -14,7 +14,7 @@
   }
 }(this, function () {
 
-/* Title.js 1.0.0
+/* smartTitle.js 1.0.0
  * Copyright © 2017 David Clews
  * Free to use under MIT license.
  */
