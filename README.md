@@ -23,3 +23,21 @@ options.flashSpeed
 sets the scrol speed in milliseconds
 options.scrollSpeed
 </pre>
+
+<h3>Installation</h3>
+
+npm install
+<pre>
+npm i smart_title
+</pre>
+
+code for your app
+<pre>
+window.smartTitle = require("./smartTitle.js");
+</pre>
+
+<h3>Example</h3>
+
+<pre>
+window.smartTitle.flash("Hello World!");
+</pre>
