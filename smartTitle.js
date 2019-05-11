@@ -41,8 +41,8 @@ var Title = {
 
 	/* set defualt options */
         Title.options = {
-		flashSpeed: 2000,
-		scrollSpeed: 2000
+		flashSpeed: 250,
+		scrollSpeed: 50
 	};
 
         /* 0 = original, 1 = new title */
