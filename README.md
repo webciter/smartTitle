@@ -33,7 +33,7 @@ npm i smart_title
 
 code for your app
 <pre>
-window.smartTitle = require("./smartTitle.js");
+window.smartTitle = require("smart_title");
 </pre>
 
 <h3>Example</h3>
