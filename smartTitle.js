@@ -21,7 +21,7 @@
 /**
  * Description
  *
- * @module Title.Core
+ * @module Title
  */
 var Title = {
   version: '1.0.0'
