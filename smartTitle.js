@@ -38,10 +38,12 @@ var Title = {
      * @para object options the options for the class
      */
 
+        let toggleInterval = undefined;
+        let scrollInterval = undefined;
 
 	/* set defualt options */
         Title.options = {
-		flashSpeed: 250,
+		flashSpeed: 900,
 		scrollSpeed: 50
 	};
 
@@ -73,20 +75,20 @@ var Title = {
          * @return {void}
          * */
         Title.flash = function(newTitle, duration = 10000){
-            if(typeof Title.scrollInterval === "undefined" && typeof Title.toggleInterval === "undefined"){
+            if(typeof Title.scrollInterval === "undefined" && typeof toggleInterval === "undefined"){
 
                 Title.states.new = newTitle;
 
                 var i = 0;
                 var speed = (typeof Title.options.flashSpeed === "undefined" ? 1000 : Title.options.flashSpeed);
 
-                Title.toggleInterval = setInterval(function(){
+                toggleInterval = setInterval(function(){
                    Title.toggle();
                    i += speed;
                    if(i >= duration){
                         /* stop timer */
-                        clearInterval(Title.toggleInterval);
-
+                        window.clearInterval(toggleInterval);
+                        toggleInterval = undefined;
                         /* put page back to original state */
                         document.title = Title.states.original;
                    }
@@ -103,13 +105,15 @@ var Title = {
         Title.scroll = function(newTitle, duration = 10000){
             if(typeof newTitle !== "undefined"){
                 /* no new title set for scroll use existing */
-                if(typeof Title.toggleInterval === "undefined" && typeof Title.scrollInterval === "undefined"){
+
+                if(typeof toggleInterval === "undefined" && typeof scrollInterval === "undefined"){
                     /* no flash running */
                     Title.doScroll(newTitle);
                 }
             }else{
+
                 /* use current title */
-                if(typeof Title.toggleInterval === "undefined" && typeof Title.scrollInterval === "undefined"){
+                if(typeof toggleInterval === "undefined" && typeof scrollInterval === "undefined"){
                     /* no flash running */
                     Title.doScroll(document.title = Title.states.original);
                 }
@@ -127,7 +131,7 @@ var Title = {
             var i = 0;
             var speed = (typeof Title.options.scrollSpeed === "undefined" ? 1000 : Title.options.scrollSpeed);
             var position = 0;
-            Title.scrollInterval = setInterval(function () {
+            scrollInterval = window.setInterval(function () {
                 document.title = text.substr(position) + text.substr(0, position);
 
                 position += 1;
@@ -139,8 +143,8 @@ var Title = {
                 i += speed;
 
                 if(i >= duration){
-                    clearInterval(Title.scrollInterval);
-
+                    window.clearInterval(scrollInterval);
+                    scrollInterval = undefined;
                     /* put page back to original state */
                     document.title = Title.states.original;
                 }
